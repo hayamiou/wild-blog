@@ -1,19 +1,100 @@
-.article-card {
-  border: 1px solid #ddd;
+// Conteneur principal de l'article
+.article {
+  max-width: 600px;
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(172, 147, 165, 0.244);
-  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 
+  // Titre de l'article
   h2 {
-    margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 1.8rem;
     color: #333;
+    margin-bottom: 8px;
   }
 
+  // Auteur de l'article
   p {
-    font-size: 16px;
-    color: #AD9D9D;
+    margin: 0 0 12px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  // Image de l'article
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 0.1px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  // Contenu de l'article
+  .content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+  }
+  // Statut de publication
+  .status {
+    font-weight: bold;
+    color: #DF7861; // articles publiés
+    font-size: 1rem;
+
+    &.unpublished {
+      color: #C9485B; // articles non publiés
+    }
+  }
+
+  // Champ de commentaire
+  label {
+    font-size: 0.9rem;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: #DF7861;
+    }
+  }
+
+  // Bouton publier / dépublier
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #DF7861;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #ECB390;
+    }
+
+    &.unpublish {
+      background-color: #C9485B;
+
+      &:hover {
+        background-color: #b71c1c;
+      }
+    }
   }
 }

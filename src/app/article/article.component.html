@@ -1,9 +1,25 @@
-<div class="article-card">
+<div class="article">
+  <h2>{{ article.title }}</h2>
+  <p>Auteur : {{ article.author }}</p>
+  <img [src]="article.image" alt="Image de l'article" />
+  <p class="content">{{ article.content }}</p>
 
-  <h2>Attention tes rétines vont saigner !</h2>
+  <p class="status" [class.unpublished]="!article.isPublished">{{ article.isPublished ? 'Article publié' : 'Article non publié' }}</p>
 
-  <p>Ceci est un paragraphe représentant le contenu de l'article de blog de Mumu.
-    
-  </p>
+  <!-- Champ de commentaire avec Two-way binding et bouton d'ajout -->
+  <label for="comment">Ajouter un commentaire :</label>
+  <input type="text" [(ngModel)]="article.comment" id="comment" />
+  <button (click)="addComment()">Enregistrer le commentaire</button>
 
+  <!-- Affichage des commentaires -->
+  <div class="comments" *ngIf="comments.length > 0">
+    <h3>Commentaires :</h3>
+    <ul>
+      <li *ngFor="let comment of comments">{{ comment }}</li>
+    </ul>
+  </div>
+
+  <button (click)="togglePublication()">
+    {{ article.isPublished ? 'Dépublier' : 'Publier' }} l'article
+  </button>
 </div>
